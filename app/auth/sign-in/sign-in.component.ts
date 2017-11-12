@@ -1,29 +1,37 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit,OnDestroy, ViewChild } from "@angular/core";
 import { DrawerTransitionBase, SlideInOnTopTransition } from "nativescript-telerik-ui/sidedrawer";
-import { AppService } from "../services";
 import { RadSideDrawerComponent } from "nativescript-telerik-ui/sidedrawer/angular";
-import { TNSFontIconService } from 'nativescript-ngx-fonticon';
+import { TNSFontIconService } from "nativescript-ngx-fonticon";
 import { Page } from 'ui/page';
-import * as colorModule from "tns-core-modules/color";
-var Color = colorModule.Color;
+import { AppService } from '../../services/app.service'
+import * as application from "application";
+import * as platform from "platform";
+declare var android: any;
+
+interface StatusBarColorInterface {
+    transparant: boolean;
+    color:string;
+}
+
+
 @Component({
-    selector: "Home",
+    selector: "sign-in",
     moduleId: module.id,
-    templateUrl: "./home.component.html"
+    templateUrl: "./sign-in.component.html"
 })
-export class HomeComponent implements OnInit {
+export class SignInComponent implements OnInit {
+
+    constructor(
+        page: Page,
+        private fonticon: TNSFontIconService,         
+        private appService:AppService
+    ) {
+        page.actionBarHidden = true;        
+    }
     /* ***********************************************************
     * Use the @ViewChild decorator to get a reference to the drawer component.
     * It is used in the "onDrawerButtonTap" function below to manipulate the drawer.
     *************************************************************/
-    
-    constructor(
-        private page : Page,
-        private fonticon: TNSFontIconService,
-        private appService:AppService
-    ){
- 
-    }
     @ViewChild("drawer") drawerComponent: RadSideDrawerComponent;
 
     private _sideDrawerTransition: DrawerTransitionBase;
@@ -33,17 +41,25 @@ export class HomeComponent implements OnInit {
     *************************************************************/
     ngOnInit(): void {
         this._sideDrawerTransition = new SlideInOnTopTransition();
-        this.appService.android_setStyle();
-        console.log("loading home.component.ts");
         
-                //this.appService.android_setStatusBarColor("#0F336D");
-                //this.appService.android_setNavigationBarColor(30, 71, 129, 254)
+        this.appService.android_setStatusBarTransparant();
+        this.appService.android_setNavigationBarRGBAColor(30, 71, 129, 254);
+        
+        console.log("loading sign-in.component.ts");
+        
+        
+        
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {
         return this._sideDrawerTransition;
     }
-
+    submit(){
+        console.log("submit");
+    }
+    ngOnDestroy(){
+        console.log("on distory")
+    }
     /* ***********************************************************
     * According to guidelines, if you have a drawer on your page, you should always
     * have a button that opens it. Use the showDrawer() function to open the app drawer section.

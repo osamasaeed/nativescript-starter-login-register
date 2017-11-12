@@ -62,8 +62,15 @@ export class MyDrawerComponent implements OnInit {
                 name: "settings",
                 route: "/settings",
                 icon: "\uf013"
+            },
+            {
+                title: "Sign In",
+                name: "sign-in",
+                route: "/auth/sign-in",
+                icon: "\uf090"
             }
         ];
+        console.log("loading drawer.component.ts");        
     }
 
     get navigationItems(): Array<any> {

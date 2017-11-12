@@ -1,28 +1,26 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
-import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
-import { MyDrawerComponent } from "./my-drawer/my-drawer.component";
+import { TNSFontIconModule } from "nativescript-ngx-fonticon"
+import { SharedModule } from "../shared/shared.module";
+import { AuthRoutingModule } from "./auth-routing.module";
+import { SignInComponent } from "./sign-in/sign-in.component";
 
 @NgModule({
     imports: [
         NativeScriptModule,
-        NativeScriptUISideDrawerModule,
+        AuthRoutingModule,
         TNSFontIconModule.forRoot({
             'fa':'./fonts/font-awesome.min.css',
             'lnr':'./fonts/style.css',
             'fl':'./fonts/flaticon.css'
         }),
+        SharedModule
     ],
     declarations: [
-        MyDrawerComponent
-    ],
-    exports: [
-        MyDrawerComponent,
-        NativeScriptUISideDrawerModule
+        SignInComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class SharedModule { }
+export class AuthModule { }
