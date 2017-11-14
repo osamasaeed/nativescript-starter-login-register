@@ -4,6 +4,7 @@ import { TNSFontIconModule } from "nativescript-ngx-fonticon"
 import { SharedModule } from "../shared/shared.module";
 import { AuthRoutingModule } from "./auth-routing.module";
 import { SignInComponent } from "./sign-in/sign-in.component";
+import { SignUpComponent } from "./sign-up/sign-up.component";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { SignInComponent } from "./sign-in/sign-in.component";
         SharedModule
     ],
     declarations: [
-        SignInComponent
+        SignInComponent,
+        SignUpComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

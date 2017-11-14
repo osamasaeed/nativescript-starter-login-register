@@ -1,0 +1,32 @@
+
+    <GridLayout class="page background page-content" >
+    <GridLayout class="auth-page-head text-center m-t-p-10" rows="60,60" columns="*">
+            <Label row="0" class="h4 text-light-gray page-title" text="Sign Up"></Label>
+            <Label row="1" class="h1 text-white page-appname font-vibes" text="Oq"></Label>
+    </GridLayout>
+        <StackLayout class="form login-form m-t-p-20" >
+
+            <GridLayout class="input-field group-input" rows="30" columns="50,250">
+                    <Label  class="group-input-icon lnr"  [text]="'lnr-user' | fonticon " row="0" col="0"></Label>    
+                    <TextField  hint="Email Address" keyboardType="email" id="email" class="form-controls input" style='border-bottom:none' row="0" col="1" ></TextField> 
+            </GridLayout>
+            <StackLayout  class="hr-light m-b-30"></StackLayout>                                                                
+            <GridLayout class="input-field group-input" rows="30" columns="50,250">
+                    <Label  class="group-input-icon lnr"  [text]="'lnr-phone' | fonticon" row="0" col="0"></Label>    
+                    <TextField id="phone" keyboardType="phone" hint="Phone"  class="form-controls input" row="0" col="1" ></TextField> 
+            </GridLayout>
+            <StackLayout  class="hr-light m-b-30"></StackLayout>                                                            
+            <GridLayout class="input-field group-input" rows="30" columns="50,250">
+                    <Label  class="group-input-icon lnr"  [text]="'lnr-lock' | fonticon" row="0" col="0"></Label>    
+                    <TextField id="password" keyboardType="email" hint="Password" secure="true" class="form-controls input" row="0" col="1" ></TextField> 
+            </GridLayout>
+            <StackLayout  class="hr-light "></StackLayout>                                                            
+            <StackLayout class="form-button">
+                    <Button class="btn btn-primary btn-outline" (tap)="submit()" text="Sign Up"></Button>
+            </StackLayout>  
+        </StackLayout>
+            <GridLayout (tap)="onSignUpTap()" class="auth-page-footer" rows="*" columns="auto,*">
+                    <Label row="0" col="0" class="h4 text-light-gray" text="Account already exists? "></Label>  
+                    <Label row="0" col="1" class="h4 text-white" text="Sign in"></Label>  
+            </GridLayout>                                                                                          
+    </GridLayout>

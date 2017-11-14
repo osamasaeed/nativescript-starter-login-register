@@ -2,16 +2,10 @@ import { Component, OnInit,OnDestroy, ViewChild } from "@angular/core";
 import { DrawerTransitionBase, SlideInOnTopTransition } from "nativescript-telerik-ui/sidedrawer";
 import { RadSideDrawerComponent } from "nativescript-telerik-ui/sidedrawer/angular";
 import { TNSFontIconService } from "nativescript-ngx-fonticon";
+import { RouterExtensions } from "nativescript-angular/router";
+import { ItemEventData } from "ui/list-view";
 import { Page } from 'ui/page';
 import { AppService } from '../../services/app.service'
-import * as application from "application";
-import * as platform from "platform";
-declare var android: any;
-
-interface StatusBarColorInterface {
-    transparant: boolean;
-    color:string;
-}
 
 
 @Component({
@@ -23,6 +17,7 @@ export class SignInComponent implements OnInit {
 
     constructor(
         page: Page,
+        private routerExtensions: RouterExtensions,
         private fonticon: TNSFontIconService,         
         private appService:AppService
     ) {
@@ -56,6 +51,11 @@ export class SignInComponent implements OnInit {
     }
     submit(){
         console.log("submit");
+        this.routerExtensions.navigate(['/home'], {
+            transition: {
+                name: "slide"
+            }
+        });
     }
     ngOnDestroy(){
         console.log("on distory")
@@ -66,5 +66,12 @@ export class SignInComponent implements OnInit {
     *************************************************************/
     onDrawerButtonTap(): void {
         this.drawerComponent.sideDrawer.showDrawer();
+    }
+    onSignUpTap(): void {        
+        this.routerExtensions.navigate(['/auth/sign-up'], {
+            transition: {
+                name: "slide"
+            }
+        });
     }
 }

@@ -26,6 +26,24 @@
 .lnr {
     font-family: Linearicons
 }
+.font-vibes{
+    font-family: "GreatVibes-Regular"
+}
+.text-white{
+    color:$text-color;
+}
+.text-light-gray{
+   color:$light-gray
+}
+.m-t-p-10 {
+    margin-top: 10%;
+}
+.m-t-p-20 {
+    margin-top: 20%;
+}
+.m-t-p-30 {
+    margin-top: 30%;
+}
 
 .background {
     background-image: url("~/images/bg_sea.jpg");
@@ -50,7 +68,9 @@
         margin-top: 20%;
     }
 }
-
+.page.background{
+    padding-bottom: 50;
+}
 .login-form{
     vertical-align:center;
     horizontal-align:center;
@@ -60,14 +80,14 @@
 }
 .group-input .group-input-icon{
     text-align:left;
-    color:#E2E2E2;
+    color:$text-color;
     vertical-align:center;
     font-size:17
 }
 .group-input .form-controls
 {
     background-color:transparent;
-    color:#E2E2E2;
+    color:$text-color;
     placeholder-color:rgba(226, 226, 226, 0.692);
     font-size:15
 }
@@ -75,8 +95,20 @@
     margin-top:10%
 }
 .form .form-button Button{
-
+    height: 60;
+    color:$text-color;
+    text-transform:capitalize;
 }
+.auth-page-footer{
+    vertical-align: bottom;
+    horizontal-align: center;    
+    text-align: center;
+    color: $text-color
+}
+.auth-page-footer .h4[col='1']{
+    text-decoration:underline
+}
+
 //Action bar
 ActionBar{
     padding-top:20

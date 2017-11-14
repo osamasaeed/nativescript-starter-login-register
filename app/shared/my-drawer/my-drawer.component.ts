@@ -66,7 +66,7 @@ export class MyDrawerComponent implements OnInit {
             {
                 title: "Sign In",
                 name: "sign-in",
-                route: "/auth/sign-in",
+                route: "auth/sign-in",
                 icon: "\uf090"
             }
         ];
